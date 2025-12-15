@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   main.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: erico-ke <erico-ke@42malaga.student.com    +#+  +:+       +#+        */
+/*   By: fracurul <fracurul@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/09/17 10:27:57 by erico-ke          #+#    #+#             */
-/*   Updated: 2025/12/11 15:11:38 by erico-ke         ###   ########.fr       */
+/*   Updated: 2025/12/16 00:45:05 by fracurul         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,6 +37,12 @@ static void	init_plane_pointers(t_plane *plane)
 	plane->tex_south = NULL;
 	plane->tex_west = NULL;
 	plane->tex_east = NULL;
+	plane->f_red = -1;
+	plane->f_green = -1;
+	plane->f_blue = -1;
+	plane->c_red = -1;
+	plane->c_green = -1;
+	plane->c_blue = -1;
 }
 
 static t_data	*init_data_structures(void)

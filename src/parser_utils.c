@@ -27,25 +27,6 @@ void	free_map(char **map)
 	free(map);
 }
 
-void	print_map_debug(char **map)
-{
-	int	i;
-
-	if (!map)
-	{
-		ft_printf("Map is NULL\n");
-		return ;
-	}
-	ft_printf("=== MAP CONTENT DEBUG ===\n");
-	i = 0;
-	while (map[i])
-	{
-		ft_printf("Line %d: [%s]\n", i, map[i]);
-		i++;
-	}
-	ft_printf("========================\n");
-}
-
 void	parse_color(t_plane *plane)
 {
 	plane->ccolor = (plane->c_red << 24) | (plane->c_green << 16)
