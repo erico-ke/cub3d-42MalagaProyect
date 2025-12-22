@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   mlx_movement.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: erico-ke <erico-ke@student.42.fr>          +#+  +:+       +#+        */
+/*   By: erico-ke <erico-ke@42malaga.student.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/09 00:00:00 by erico-ke          #+#    #+#             */
-/*   Updated: 2025/12/09 00:00:00 by erico-ke         ###   ########.fr       */
+/*   Updated: 2025/12/11 15:53:44 by erico-ke         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -59,9 +59,9 @@ void	handle_movement(t_data *data)
 		move_player(data, -data->player->plane_x * MOVE_SPEED,
 			-data->player->plane_y * MOVE_SPEED);
 	if (mlx_is_key_down(data->mlx, MLX_KEY_LEFT))
-		rotate_player(data, ROT_SPEED);
-	if (mlx_is_key_down(data->mlx, MLX_KEY_RIGHT))
 		rotate_player(data, -ROT_SPEED);
+	if (mlx_is_key_down(data->mlx, MLX_KEY_RIGHT))
+		rotate_player(data, ROT_SPEED);
 }
 
 void	handle_keypress(mlx_key_data_t keydata, void *param)

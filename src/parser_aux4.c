@@ -3,16 +3,15 @@
 /*                                                        :::      ::::::::   */
 /*   parser_aux4.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: fracurul <fracurul@student.42.fr>          +#+  +:+       +#+        */
+/*   By: erico-ke <erico-ke@42malaga.student.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/16 00:33:19 by fracurul          #+#    #+#             */
-/*   Updated: 2025/12/16 00:45:51 by fracurul         ###   ########.fr       */
+/*   Updated: 2025/12/22 17:53:34 by erico-ke         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/cub3d.h"
 
-// Validation of RGB string (no spaces, tabs and trash)
 int	is_valid_rgb_number(char *str)
 {
 	int	i;
@@ -29,7 +28,6 @@ int	is_valid_rgb_number(char *str)
 	return (i > 0);
 }
 
-// Valida formato RGB completo: "R,G,B" sin espacios ni basura
 int	validate_rgb_format(char *line)
 {
 	char	**rgb;
@@ -53,7 +51,7 @@ int	validate_rgb_format(char *line)
 		return (0);
 	return (1);
 }
-// Validation of texture
+
 int	validate_texture(char **texture_ptr, char *line, char *name)
 {
 	if (*texture_ptr)
@@ -70,7 +68,6 @@ int	validate_texture(char **texture_ptr, char *line, char *name)
 	return (1);
 }
 
-// Parse & validate RGB color one by one
 int	parse_color_line(char *line, int *r, int *g, int *b, char *name)
 {
 	char	**rgb;
