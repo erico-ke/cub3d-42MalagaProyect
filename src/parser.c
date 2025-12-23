@@ -6,7 +6,7 @@
 /*   By: fracurul <fracurul@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/09/17 17:00:00 by fracurul          #+#    #+#             */
-/*   Updated: 2025/12/16 00:45:42 by fracurul         ###   ########.fr       */
+/*   Updated: 2025/12/23 10:05:50 by fracurul         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,7 +20,7 @@ static int	process_line(char *line, t_data *data, char **map_content)
 		*map_content = ft_strjoin_g(*map_content, line);
 		return (1);
 	}
-	return (textures_n_colors(line, data, NULL));
+	return (textures_n_colors(line, data));
 }
 
 //Read Map.cub & filters textures and map
@@ -53,9 +53,8 @@ int	read_cub(const char *filecub, t_data *data)
 }
 
 //Parse textures & colors.
-int	textures_n_colors(char *line, t_data *data, char **rgb)
+int	textures_n_colors(char *line, t_data *data)
 {
-	(void)rgb;
 	if (ft_strncmp(line, "NO ", 3) == 0)
 		return (validate_texture(&data->plane->no_texture, line + 3, "North"));
 	else if (ft_strncmp(line, "SO ", 3) == 0)
@@ -65,10 +64,8 @@ int	textures_n_colors(char *line, t_data *data, char **rgb)
 	else if (ft_strncmp(line, "EA ", 3) == 0)
 		return (validate_texture(&data->plane->ea_texture, line + 3, "East"));
 	else if (ft_strncmp(line, "F ", 2) == 0)
-		return (parse_color_line(line + 2, &data->plane->f_red,
-				&data->plane->f_green, &data->plane->f_blue, "floor"));
+		return (parse_color_line(line + 2, data->plane, "floor"));
 	else if (ft_strncmp(line, "C ", 2) == 0)
-		return (parse_color_line(line + 2, &data->plane->c_red,
-				&data->plane->c_green, &data->plane->c_blue, "ceiling"));
+		return (parse_color_line(line + 2, data->plane, "ceiling"));
 	return (1);
 }

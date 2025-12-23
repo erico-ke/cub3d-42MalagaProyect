@@ -6,7 +6,7 @@
 /*   By: fracurul <fracurul@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/09/25 17:12:45 by erico-ke          #+#    #+#             */
-/*   Updated: 2025/12/16 00:47:33 by fracurul         ###   ########.fr       */
+/*   Updated: 2025/12/23 10:02:28 by fracurul         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -288,7 +288,7 @@ mlx_texture_t	*select_texture(t_data *data, t_ray *ray);
 
 /* PARSER FUNCTIONS */
 int			read_cub(const char *filecub, t_data *data);
-int			textures_n_colors(char *line, t_data *data, char **rgb);
+int			textures_n_colors(char *line, t_data *data);
 void		parse_color(t_plane *plane);
 char		*read_map_lines(int fd, t_data *data);
 void		free_map(char **map);
@@ -296,7 +296,7 @@ void		print_map_debug(char **map);
 int			is_valid_rgb_number(char *str);
 int			validate_rgb_format(char *line);
 int			validate_texture(char **texture_ptr, char *path, char *name);
-int			parse_color_line(char *line, int *r, int *g, int *b, char *name);
+int			parse_color_line(char *line, t_plane *plane, char *name);
 
 /* PASER AUX FUNCS*/
 int			closed_line(char *line);

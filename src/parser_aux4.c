@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   parser_aux4.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: erico-ke <erico-ke@42malaga.student.com    +#+  +:+       +#+        */
+/*   By: fracurul <fracurul@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/16 00:33:19 by fracurul          #+#    #+#             */
-/*   Updated: 2025/12/22 17:53:34 by erico-ke         ###   ########.fr       */
+/*   Updated: 2025/12/23 10:00:59 by fracurul         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -68,11 +68,30 @@ int	validate_texture(char **texture_ptr, char *line, char *name)
 	return (1);
 }
 
-int	parse_color_line(char *line, int *r, int *g, int *b, char *name)
+static void	assign_rgb(t_plane *plane, char **rgb, int is_floor)
+{
+	if (is_floor)
+	{
+		plane->f_red = ft_atoi(rgb[0]);
+		plane->f_green = ft_atoi(rgb[1]);
+		plane->f_blue = ft_atoi(rgb[2]);
+	}
+	else
+	{
+		plane->c_red = ft_atoi(rgb[0]);
+		plane->c_green = ft_atoi(rgb[1]);
+		plane->c_blue = ft_atoi(rgb[2]);
+	}
+
+}
+
+int	parse_color_line(char *line, t_plane *plane, char *name)
 {
 	char	**rgb;
+	int		is_floor;
 
-	if (*r != -1)
+	is_floor = (ft_strncmp(name, "floor", 5) == 0);
+	if ((is_floor && plane->f_red != -1) || (!is_floor && plane->c_red != -1))
 	{
 		ft_printf("Error: Duplicated %s color\n", name);
 		return (0);
@@ -83,9 +102,7 @@ int	parse_color_line(char *line, int *r, int *g, int *b, char *name)
 		return (0);
 	}
 	rgb = ft_split(line, ',');
-	*r = ft_atoi(rgb[0]);
-	*g = ft_atoi(rgb[1]);
-	*b = ft_atoi(rgb[2]);
+	assign_rgb(plane, rgb, is_floor);
 	free_map(rgb);
 	return (1);
 }
