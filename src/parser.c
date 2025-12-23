@@ -6,7 +6,7 @@
 /*   By: fracurul <fracurul@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/09/17 17:00:00 by fracurul          #+#    #+#             */
-/*   Updated: 2025/12/23 10:05:50 by fracurul         ###   ########.fr       */
+/*   Updated: 2025/12/23 10:17:58 by fracurul         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,18 +31,16 @@ int	read_cub(const char *filecub, t_data *data)
 	char	*map_content;
 
 	fd = open(filecub, O_RDONLY);
+	line = get_next_line(fd);
 	map_content = NULL;
 	if (fd < 0)
 		return (ft_printf("Error opening file\n"), 1);
-	while ((line = get_next_line(fd)))
+	while (line)
 	{
 		if (!process_line(line, data, &map_content))
-		{
-			free(line);
-			close(fd);
-			return (1);
-		}
+			return(free(line), close(fd), 1);
 		free(line);
+		line = get_next_line(fd);
 	}
 	close(fd);
 	if (!map_content)
