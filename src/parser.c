@@ -6,7 +6,7 @@
 /*   By: erico-ke <erico-ke@42malaga.student.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/09/17 17:00:00 by fracurul          #+#    #+#             */
-/*   Updated: 2025/12/26 11:02:41 by erico-ke         ###   ########.fr       */
+/*   Updated: 2025/12/26 11:58:50 by erico-ke         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,20 +16,26 @@ static int	process_line(char *line, t_data *data, char **map_content)
 {
 	int	i;
 
-	if (line[0] == ' ' || line[0] == '\t' || ft_isdigit(line[0])
+	if (line[0] == ' ' || ((line[0] >= 9 && line[0] <= 13) && line[0] != '\n')
+		|| ft_isdigit(line[0])
 		|| line[0] == '1' || (line[0] == '\n' && *map_content))
 	{
 		*map_content = ft_strjoin_g(*map_content, line);
-		i = 0;
-		while (map_content[0][i] && map_content[0][i + 1])
+		i = -1;
+		while (map_content[0][++i] && map_content[0][i + 1])
 		{
-			if (map_content[0][i] == '\n' && map_content[0][i + 1] == '\n')
-			{
-				printf("TEST %d: %s", i, *map_content);
+			if (map_content[0][i] == '\n' && map_content[0][i + 1] == '\n'
+				&& ((map_content[0][i] >= 9 && map_content[0][i] <= 13)
+				&& map_content[0][i] != '\n'))
 				return (printf("Error: invalid map\n"), 0);
-			}
-			i++;
 		}
+		i = 0;
+		while (map_content[0][i] == ' '
+			|| ((map_content[0][i] >= 9 && map_content[0][i] <= 13)
+			&& map_content[0][i] != '\n'))
+			i++;
+		if (map_content[0][i] == '\n')
+			return (printf("Error: blank line in file\n"), 0);
 		return (1);
 	}
 	return (textures_n_colors(line, data));
