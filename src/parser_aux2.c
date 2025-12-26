@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   parser_aux2.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: fracurul <fracurul@student.42.fr>          +#+  +:+       +#+        */
+/*   By: erico-ke <erico-ke@42malaga.student.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/08 20:39:19 by fracurul          #+#    #+#             */
-/*   Updated: 2025/12/16 00:21:01 by fracurul         ###   ########.fr       */
+/*   Updated: 2025/12/26 09:06:12 by erico-ke         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -59,7 +59,6 @@ int	check_hole(char **map)
 	return (1);
 }
 
-//Check instances(check if we have all the things to start our game)
 int	check_instances(char **map, t_player *player, t_plane *plane)
 {
 	if (!map || !map[0])
