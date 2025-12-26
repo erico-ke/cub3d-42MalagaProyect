@@ -6,11 +6,33 @@
 /*   By: erico-ke <erico-ke@42malaga.student.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/09/17 17:00:00 by fracurul          #+#    #+#             */
-/*   Updated: 2025/12/26 12:02:43 by erico-ke         ###   ########.fr       */
+/*   Updated: 2025/12/26 13:59:04 by erico-ke         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/cub3d.h"
+
+static int	check_map_content(t_data *data, char *map)
+{
+	if ((!data->plane->no_texture || !data->plane->so_texture
+			|| !data->plane->we_texture || !data->plane->ea_texture
+			|| data->plane->c_red == -1 || data->plane->f_red == -1)
+		&& map)
+		return (0);
+	return (1);
+}
+
+static int	free_gnl(char *map, char *line, int fd)
+{
+	free(map);
+	close(fd);
+	while (line)
+	{
+		free(line);
+		line = get_next_line(fd);
+	}
+	return (0);
+}
 
 static int	process_line(char *line, t_data *data, char **map_content)
 {
@@ -41,30 +63,29 @@ static int	process_line(char *line, t_data *data, char **map_content)
 	return (textures_n_colors(line, data));
 }
 
-int	read_cub(const char *filecub, t_data *data)
+int	read_cub(const char *filecub, t_data *data, int fd)
 {
-	int		fd;
 	char	*line;
 	char	*map_content;
 
 	fd = open(filecub, O_RDONLY);
-	line = get_next_line(fd);
-	map_content = NULL;
 	if (fd < 0)
 		return (ft_printf("Error opening file\n"), 1);
+	line = get_next_line(fd);
+	map_content = NULL;
 	while (line)
 	{
+		if (!check_map_content(data, map_content))
+			return (printf("Error: invalid content position\n"), free_gnl(map_content, line, fd));
 		if (!process_line(line, data, &map_content))
-			return (free(line), close(fd), 1);
+			return (free_gnl(map_content, line, fd), 1);
 		free(line);
 		line = get_next_line(fd);
 	}
 	close(fd);
 	if (!map_content)
 		return (ft_printf("No map found in file\n"), 1);
-	print_map_debug(&map_content);
 	data->map = ft_split(map_content, '\n');
-	print_map_debug(data->map);
 	free(map_content);
 	return (1);
 }
@@ -87,3 +108,4 @@ int	textures_n_colors(char *line, t_data *data)
 		return (printf ("Error blank in map\n"), 0);
 	return (1);
 }
+

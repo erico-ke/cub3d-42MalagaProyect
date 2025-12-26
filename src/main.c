@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   main.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: fracurul <fracurul@student.42.fr>          +#+  +:+       +#+        */
+/*   By: erico-ke <erico-ke@42malaga.student.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/09/17 10:27:57 by erico-ke          #+#    #+#             */
-/*   Updated: 2025/12/16 00:45:05 by fracurul         ###   ########.fr       */
+/*   Updated: 2025/12/26 13:32:28 by erico-ke         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -83,7 +83,7 @@ int	main(int argc, char **argv)
 	data = init_data_structures();
 	if (!data)
 		return (EXIT_FAILURE);
-	if (read_cub(argv[1], data) != 1)
+	if (read_cub(argv[1], data, 0) != 1)
 	{
 		cleanup_data(data);
 		return (EXIT_FAILURE);

@@ -6,7 +6,7 @@
 /*   By: erico-ke <erico-ke@42malaga.student.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/09/25 17:12:45 by erico-ke          #+#    #+#             */
-/*   Updated: 2025/12/26 09:12:10 by erico-ke         ###   ########.fr       */
+/*   Updated: 2025/12/26 13:18:06 by erico-ke         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -459,7 +459,7 @@ uint32_t		get_texture_color(mlx_texture_t *texture, int x, int y);
  * Parses texture paths, RGB colors, and map layout.
  * Validates all configuration elements and map integrity.
  */
-int				read_cub(const char *filecub, t_data *data);
+int				read_cub(const char *filecub, t_data *data, int fd);
 
 /**
  * @brief Parses texture and color configuration lines from .cub file
