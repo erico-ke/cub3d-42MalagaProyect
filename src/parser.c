@@ -6,7 +6,7 @@
 /*   By: erico-ke <erico-ke@42malaga.student.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/09/17 17:00:00 by fracurul          #+#    #+#             */
-/*   Updated: 2025/12/26 11:58:50 by erico-ke         ###   ########.fr       */
+/*   Updated: 2025/12/26 12:02:43 by erico-ke         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,8 +24,8 @@ static int	process_line(char *line, t_data *data, char **map_content)
 		i = -1;
 		while (map_content[0][++i] && map_content[0][i + 1])
 		{
-			if (map_content[0][i] == '\n' && map_content[0][i + 1] == '\n'
-				&& ((map_content[0][i] >= 9 && map_content[0][i] <= 13)
+			if ((map_content[0][i] == '\n' && map_content[0][i + 1] == '\n')
+				|| ((map_content[0][i] >= 9 && map_content[0][i] <= 13)
 				&& map_content[0][i] != '\n'))
 				return (printf("Error: invalid map\n"), 0);
 		}
@@ -84,6 +84,6 @@ int	textures_n_colors(char *line, t_data *data)
 	else if (ft_strncmp(line, "C ", 2) == 0)
 		return (parse_color_line(line + 2, data->plane, "ceiling"));
 	else if (ft_strncmp(line, "\n", 1) != 0)
-		return (printf ("AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA\n"), 0);
+		return (printf ("Error blank in map\n"), 0);
 	return (1);
 }
