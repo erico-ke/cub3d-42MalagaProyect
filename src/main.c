@@ -6,7 +6,7 @@
 /*   By: erico-ke <erico-ke@42malaga.student.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/09/17 10:27:57 by erico-ke          #+#    #+#             */
-/*   Updated: 2025/12/26 13:32:28 by erico-ke         ###   ########.fr       */
+/*   Updated: 2025/12/26 15:00:53 by erico-ke         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -95,5 +95,6 @@ int	main(int argc, char **argv)
 		return (EXIT_FAILURE);
 	}
 	init_mlx(data);
+	cleanup_data(data);
 	return (EXIT_SUCCESS);
 }

@@ -6,7 +6,7 @@
 /*   By: erico-ke <erico-ke@42malaga.student.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/09/17 17:00:00 by fracurul          #+#    #+#             */
-/*   Updated: 2025/12/26 13:59:04 by erico-ke         ###   ########.fr       */
+/*   Updated: 2025/12/26 14:49:15 by erico-ke         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -76,7 +76,8 @@ int	read_cub(const char *filecub, t_data *data, int fd)
 	while (line)
 	{
 		if (!check_map_content(data, map_content))
-			return (printf("Error: invalid content position\n"), free_gnl(map_content, line, fd));
+			return (printf("Error: invalid content position\n")
+				, free_gnl(map_content, line, fd));
 		if (!process_line(line, data, &map_content))
 			return (free_gnl(map_content, line, fd), 1);
 		free(line);
@@ -108,4 +109,3 @@ int	textures_n_colors(char *line, t_data *data)
 		return (printf ("Error blank in map\n"), 0);
 	return (1);
 }
-
