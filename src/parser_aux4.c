@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   parser_aux4.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: fracurul <fracurul@student.42.fr>          +#+  +:+       +#+        */
+/*   By: erico-ke <erico-ke@42malaga.student.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/16 00:33:19 by fracurul          #+#    #+#             */
-/*   Updated: 2025/12/23 10:00:59 by fracurul         ###   ########.fr       */
+/*   Updated: 2025/12/26 08:57:48 by erico-ke         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -82,7 +82,6 @@ static void	assign_rgb(t_plane *plane, char **rgb, int is_floor)
 		plane->c_green = ft_atoi(rgb[1]);
 		plane->c_blue = ft_atoi(rgb[2]);
 	}
-
 }
 
 int	parse_color_line(char *line, t_plane *plane, char *name)

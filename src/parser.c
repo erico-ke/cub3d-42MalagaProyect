@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   parser.c                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: fracurul <fracurul@student.42.fr>          +#+  +:+       +#+        */
+/*   By: erico-ke <erico-ke@42malaga.student.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/09/17 17:00:00 by fracurul          #+#    #+#             */
-/*   Updated: 2025/12/23 10:17:58 by fracurul         ###   ########.fr       */
+/*   Updated: 2025/12/26 08:57:34 by erico-ke         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,7 +23,6 @@ static int	process_line(char *line, t_data *data, char **map_content)
 	return (textures_n_colors(line, data));
 }
 
-//Read Map.cub & filters textures and map
 int	read_cub(const char *filecub, t_data *data)
 {
 	int		fd;
@@ -38,7 +37,7 @@ int	read_cub(const char *filecub, t_data *data)
 	while (line)
 	{
 		if (!process_line(line, data, &map_content))
-			return(free(line), close(fd), 1);
+			return (free(line), close(fd), 1);
 		free(line);
 		line = get_next_line(fd);
 	}
@@ -50,7 +49,6 @@ int	read_cub(const char *filecub, t_data *data)
 	return (1);
 }
 
-//Parse textures & colors.
 int	textures_n_colors(char *line, t_data *data)
 {
 	if (ft_strncmp(line, "NO ", 3) == 0)
