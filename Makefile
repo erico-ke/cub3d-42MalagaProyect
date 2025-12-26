@@ -17,7 +17,7 @@ SRCS =	src/main.c src/mlx_cleanup.c src/mlx_init.c \
 		src/parser_aux.c src/parser_aux2.c src/parser_aux3.c \
 		src/parser_aux4.c src/parser_player.c src/parser_utils.c \
 		src/parser.c src/raycast_render.c src/raycast_utils.c \
-		src/raycast.c src/texture_color.c src/texture.c
+		src/raycast.c src/texture_color.c src/texture.c src/debug.c
 
 OBJDIR = ./obj/
 OBJS = $(SRCS:$(SRCDIR)%.c=$(OBJDIR)%.o)
