@@ -1,7 +1,7 @@
 # 🧮 RAYCASTING - Fundamentos Matemáticos
 
-[![es](https://img.shields.io/badge/lang-es-red.svg)](RAYCASTING_EXPLAINED.md)
-[![en](https://img.shields.io/badge/lang-en-blue.svg)](RAYCASTING_EXPLAINED.en.md)
+[![Español](https://img.shields.io/badge/🇪🇸-Español-red)](RAYCASTING_EXPLAINED.md)
+[![English](https://img.shields.io/badge/🇺🇸-English-blue)](RAYCASTING_EXPLAINED.en.md)
 
 Explicación basada en [https://lodev.org/cgtutor/raycasting.html](https://lodev.org/cgtutor/raycasting.html)
 

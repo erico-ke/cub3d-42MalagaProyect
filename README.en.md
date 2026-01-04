@@ -1,7 +1,7 @@
 # cub3D
 
-[![es](https://img.shields.io/badge/lang-es-red.svg)](README.md)
-[![en](https://img.shields.io/badge/lang-en-blue.svg)](README.en.md)
+[![Español](https://img.shields.io/badge/🇪🇸-Español-red)](README.md)
+[![English](https://img.shields.io/badge/🇺🇸-English-blue)](README.en.md)
 
 ![42 Project](https://img.shields.io/badge/42-Project-blue)
 

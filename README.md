@@ -1,7 +1,7 @@
 # cub3D
 
-[![es](https://img.shields.io/badge/lang-es-red.svg)](README.md)
-[![en](https://img.shields.io/badge/lang-en-blue.svg)](README.en.md)
+[![Español](https://img.shields.io/badge/🇪🇸-Español-red)](README.md)
+[![English](https://img.shields.io/badge/🇺🇸-English-blue)](README.en.md)
 
 ![42 Project](https://img.shields.io/badge/42-Project-blue)
 
@@ -157,4 +157,3 @@ Este proyecto utiliza la técnica de **raycasting** para renderizar gráficos 3D
 ### Enlaces útiles
 - [Lode's Computer Graphics Tutorial](https://lodev.org/cgtutor/raycasting.html) - Tutorial completo de raycasting
 - [Wolfenstein 3D Source Code](https://github.com/id-Software/wolf3d) - Código fuente del juego original
-
