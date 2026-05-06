@@ -107,10 +107,10 @@ cub3d/
 │   └── MLX42/               # MLX42 graphics library
 ├── src/
 │   ├── main.c               # Program entry point
-│   ├── parser*.c            # .cub file parsing and validation
-│   ├── mlx*.c               # MLX initialization and management
-│   ├── raycast*.c           # Raycasting engine
-│   ├── texture*.c           # Texture loading and application
+│   ├── parser/*.c            # .cub file parsing and validation
+│   ├── mlx/*.c               # MLX initialization and management
+│   ├── raycasting/*.c           # Raycasting engine
+│   ├── textures/*.c           # Texture loading and application
 │   └── debug.c              # Debug utilities
 ├── textures/                # PNG textures for walls
 ├── test_maps/               # Test maps with edge cases
