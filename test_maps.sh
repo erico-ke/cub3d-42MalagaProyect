@@ -26,7 +26,7 @@ fi
 # Test 2: RGB con letras
 echo -e "${YELLOW}Test 2: RGB inválido - con letras (255a,100,50)${NC}"
 cat > test_maps/invalid_rgb_letters.cub << 'EOF'
-NO ./textures/images.png
+NO ./textures/north.png
 SO ./textures/south.png
 WE ./textures/west.png
 EA ./textures/east.png
@@ -43,7 +43,7 @@ echo ""
 # Test 3: RGB fuera de rango
 echo -e "${YELLOW}Test 3: RGB inválido - fuera de rango (300,100,50)${NC}"
 cat > test_maps/invalid_rgb_range.cub << 'EOF'
-NO ./textures/images.png
+NO ./textures/north.png
 SO ./textures/south.png
 WE ./textures/west.png
 EA ./textures/east.png
@@ -60,8 +60,8 @@ echo ""
 # Test 4: Textura duplicada
 echo -e "${YELLOW}Test 4: Textura duplicada (NO aparece dos veces)${NC}"
 cat > test_maps/duplicate_texture.cub << 'EOF'
-NO ./textures/images.png
-NO ./textures/images.png
+NO ./textures/north.png
+NO ./textures/north.png
 SO ./textures/south.png
 WE ./textures/west.png
 EA ./textures/east.png
@@ -95,7 +95,7 @@ echo ""
 # Test 6: RGB con espacios
 echo -e "${YELLOW}Test 6: RGB inválido - con espacios (255, 100, 50)${NC}"
 cat > test_maps/invalid_rgb_spaces.cub << 'EOF'
-NO ./textures/images.png
+NO ./textures/north.png
 SO ./textures/south.png
 WE ./textures/west.png
 EA ./textures/east.png
@@ -112,7 +112,7 @@ echo ""
 # Test 7: RGB con valores extra
 echo -e "${YELLOW}Test 7: RGB inválido - demasiados valores (255,100,50,200)${NC}"
 cat > test_maps/invalid_rgb_extra.cub << 'EOF'
-NO ./textures/images.png
+NO ./textures/north.png
 SO ./textures/south.png
 WE ./textures/west.png
 EA ./textures/east.png

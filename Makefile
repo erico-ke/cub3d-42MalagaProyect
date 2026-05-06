@@ -12,12 +12,12 @@ LIBFT = $(LIBFT_PATH)/libft.a
 HEADERS = -I ./libs -I $(MLX42_PATH)/include/MLX42 -I $(LIBFT_PATH)
 
 SRCDIR = ./src/
-SRCS =	src/main.c src/mlx_cleanup.c src/mlx_init.c \
-		src/mlx_movement.c src/mlx_player.c src/mlx.c \
-		src/parser_aux.c src/parser_aux2.c src/parser_aux3.c \
-		src/parser_aux4.c src/parser_player.c src/parser_utils.c \
-		src/parser.c src/raycast_render.c src/raycast_utils.c \
-		src/raycast.c src/texture_color.c src/texture.c src/debug.c
+SRCS =	src/main.c src/mlx/mlx_cleanup.c src/mlx/mlx_init.c \
+		src/mlx/mlx_movement.c src/mlx/mlx_player.c src/mlx/mlx.c \
+		src/parser/parser_aux.c src/parser/parser_aux2.c src/parser/parser_aux3.c \
+		src/parser/parser_aux4.c src/parser/parser_player.c src/parser/parser_utils.c \
+		src/parser/parser.c src/raycasting/raycast_render.c src/raycasting/raycast_utils.c \
+		src/raycasting/raycast.c src/textures/texture_color.c src/textures/texture.c src/debug.c
 
 OBJDIR = ./obj/
 OBJS = $(SRCS:$(SRCDIR)%.c=$(OBJDIR)%.o)
